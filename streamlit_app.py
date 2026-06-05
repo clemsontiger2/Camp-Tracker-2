@@ -43,8 +43,8 @@ def get_streamlit_user() -> dict[str, str] | None:
     user = getattr(st, "user", None)
     if user is None or not getattr(user, "is_logged_in", False):
         return None
-    email = getattr(user, "email", "") or user.get("email", "")
-    name = getattr(user, "name", "") or user.get("name", "") or email
+    email = getattr(user, "email", "") or ""
+    name = getattr(user, "name", "") or email
     return {"email": email, "name": name}
 
 
